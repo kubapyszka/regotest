@@ -1,0 +1,36 @@
+{
+  "actors": {
+    "org_1": {
+      "us_1": {
+        "guid": "us_1",
+        "resources": [
+          "ta_2",
+          "cl_1"
+        ],
+        "role": "data_manager"
+      }
+    }
+  },
+
+    "hierarchy_graph": {
+      "org_1": {
+        "cl_1": [
+          "ta_1_a",
+          "ta_1_b"
+        ],
+        "ta_1_a": [
+          "co_1"
+        ],
+        "ta_1_b": [],
+        "co_1": [],
+        "ta_2": [
+          "co_2"
+        ],
+        "co_2": [],
+        "ta_3": [
+          "co_3"
+        ],
+        "co_3": []
+      }
+    }
+}
