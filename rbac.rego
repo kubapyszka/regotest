@@ -21,9 +21,9 @@ resource_access {
 }
 
 resource_access {
-    some i, j
+	some i
 
-    input.resource == user_hierarchy_resource[i][j]
+    input.resource == user_hierarchy_resource[i]
 }
 
 is_admin {
@@ -48,14 +48,12 @@ user_hierarchy_resource[r] {
   	r := graph.reachable(
   	    data.hierarchy_graph[input.organization],
   	    data.actors[input.organization][input.actor].resources
-  	)
+  	)[_]
 }
-
 
 user_hierarchy_model_resource[mr] {
-	some i
-
     mr := [
-    	mr_ | mr_ := user_hierarchy_resource[i][_]; startswith(mr_, input.guid_prefix)
-    ]
+    	mr_ | mr_ := user_hierarchy_resource[_]; startswith(mr_, input.guid_prefix)
+    ][_]
 }
+
