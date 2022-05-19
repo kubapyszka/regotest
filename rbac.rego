@@ -2,26 +2,26 @@ package app.rbac
 
 default resource_access = false
 
-resource_access := true {
+resource_access {
 	is_admin
 }
 
-resource_access := true {
+resource_access {
 	some resource
 	user_resource[resource]
 
 	resource == "*"
 }
 
-resource_access := true {
+resource_access {
 	some resource
 	user_resource[resource]
 
     input.resource == resource
 }
 
-resource_access := true {
-	some i, j
+resource_access {
+    some i, j
 
     input.resource == user_hierarchy_resource[i][j]
 }
