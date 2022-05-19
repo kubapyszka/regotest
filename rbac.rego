@@ -50,3 +50,12 @@ user_hierarchy_resource[r] {
   	    data.actors[input.organization][input.actor].resources
   	)
 }
+
+
+user_hierarchy_model_resource[mr] {
+	some i
+
+    mr := [
+    	mr_ | mr_ := user_hierarchy_resource[i][_]; startswith(mr_, input.guid_prefix)
+    ]
+}
